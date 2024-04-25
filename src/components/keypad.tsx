@@ -1,24 +1,48 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Keypad = () => {
-  const [display, setDisplay] = useState<string | number>("");
+  const [display, setDisplay] = useState<string>("");
 
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "C", "+", "-", "=", ""];
+  const numbers: (number | string)[] = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    0,
+    "+",
+    "-",
+    "/",
+    "*",
+    "=",
 
-  const handleclick = (value) => {
+    ".",
+    "AC",
+    "DE",
+  ];
+
+  const handleclick = (value: number | string) => {
     if (value === "=") {
-      setDisplay(eval(display));
+      setDisplay("Rezultat: " + eval(display as string));
     } else {
       setDisplay(display + value);
     }
-    if (value === "C") {
+    if (value === "AC") {
       setDisplay("");
+    }
+    if (value === "DE") {
+      setDisplay(display.slice(0, -1));
     }
   };
 
   return (
     <>
       <div className="calculator">
+        <div className="display">{display}</div>
         <div className="grid">
           {numbers.map((value) => (
             <button
@@ -26,14 +50,12 @@ const Keypad = () => {
               onClick={() => {
                 handleclick(value);
               }}
-              key={value}
+              key={value.toString()}
             >
               {value}
             </button>
           ))}
         </div>
-
-        <div className="display">Rezultat:{display}</div>
       </div>
     </>
   );

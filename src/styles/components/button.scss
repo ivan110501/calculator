@@ -1,3 +1,10 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 button {
   background-color: #7bc9ff;
   font-size: 24px;
@@ -27,23 +34,23 @@ button:hover {
 }
 
 .display {
-  height: 100px;
+  height: 5rem;
   width: 90%;
   margin: 0 auto;
   padding: 0 10px;
-  background-color: #93bfe62d;
+  background-color: #0000002d;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
+  font-size: 2rem;
   font-weight: bold;
   box-sizing: border-box;
 }
 
 .calculator {
   width: 20rem;
-  height: 35rem;
+  height: 40rem;
   padding: 10px;
   border-radius: 10px;
   background-color: #8576ff;
