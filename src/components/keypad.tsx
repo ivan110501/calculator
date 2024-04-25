@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Keypad = () => {
   const [display, setDisplay] = useState<string>("");
@@ -19,7 +19,6 @@ const Keypad = () => {
     "/",
     "*",
     "=",
-
     ".",
     "AC",
     "DE",
@@ -42,11 +41,10 @@ const Keypad = () => {
   return (
     <>
       <div className="calculator">
-        <div className="display">{display}</div>
-        <div className="grid">
+        <div className="calculator__display">{display}</div>
+        <div className="calculator__grid">
           {numbers.map((value) => (
             <button
-              className="grid__item"
               onClick={() => {
                 handleclick(value);
               }}
